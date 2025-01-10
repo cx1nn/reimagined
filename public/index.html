@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=true" />
+    <title>Reimagined</title>
+    <meta name="description" content="made by pxyfi" />
+    <meta name="keywords" content="kaka post" />
+    <meta name="googlebot" content="index, follow, snippet" />
+    <link rel="shortcut icon" href="./image.png">
+    <link rel="stylesheet" href="./test.css">
+    <div id="particles-js"></div>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="apps.html" class="app-link">Apps</a>
+        <a href="tabs.html" class="game-link"><i class="fas fa-gamepad"></i>Tabs</a>
+        <a href="settings.html" class="game-link"><i class="fas fa-gamepad"></i>Settings</a>
+    </nav>
+
+    <div class="flex-center logo-wrapper header-center">
+        <img class="logo" src="image.png" />
+        <h1 id="imagine">Reimagined</h1>
+    </div>
+
+    <div class="flex-center desc">
+        <form id="form" class="flex-center">
+            <!-- Prompt input that will be hidden only after iframe setup -->
+            <input id="address" placeholder="Put URL in" />
+        </form>
+
+        <!-- Hidden iframe initially -->
+        <iframe id="iframeWindow" class="iframeWindow" style="display: none;"></iframe>
+    </div>
+
+    <!-- Including BareMux and UV scripts -->
+    <script src="/baremux/index.js"></script>
+    <script>
+        const connection = new BareMux.BareMuxConnection("/baremux/worker.js");
+
+        const wispUrl = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
+        const bareUrl = (location.protocol === "https:" ? "https" : "http") + "://" + location.host + "/bare/";
+
+        // Ensure epoxy transport is always initialized
+        async function initializeTransport() {
+            if (!await connection.getTransport()) {
+                await connection.setTransport("/epoxy/index.mjs", [{ wisp: wispUrl }]);
+            }
+        }
+
+        // Initialize transport on page load
+        window.onload = async () => {
+            await initializeTransport();
+        };
+
+        // Submit URL on Enter key
+        document.getElementById("address").addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();  // Prevent form submission
+
+                let url = document.getElementById("address").value;
+                let searchUrl = "https://www.google.com/search?q=";
+
+                // If no periods are detected, search Google
+                if (!url.includes(".")) {
+                    url = searchUrl + encodeURIComponent(url);
+                } else {
+                    if (!url.startsWith("http://") && !url.startsWith("https://")) {
+                        // Add https:// if no scheme is detected
+                        url = "https://" + url;
+                    }
+                }
+
+                // Ensure the epoxy transport is set before loading the URL in the iframe
+                initializeTransport().then(() => {
+                    // Set the iframe's source to the encoded URL
+                    iframeWindow.src = __uv$config.prefix + __uv$config.encodeUrl(url);
+
+                    // Show the iframe and make it cover the screen
+                    iframeWindow.style.display = "block";
+                    iframeWindow.style.position = "absolute";
+                    iframeWindow.style.top = "0";
+                    iframeWindow.style.left = "0";
+                    iframeWindow.style.width = "100%";
+                    iframeWindow.style.height = "100%";
+                    iframeWindow.style.border = "none";
+
+                    // Hide the input field only after the iframe setup is complete
+                    document.getElementById("address").style.display = 'none';
+                });
+            }
+        });
+    </script>
+
+    <!-- UV and particles.js scripts -->
+    <script src="/uv/uv.bundle.js"></script>
+    <script src="/uv/uv.config.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="js/particles.js"></script>
+</body>
+
+</html>

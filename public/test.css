@@ -1,0 +1,324 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #fff;
+          /* background: url(./background.png) center/cover no-repeat; */
+          background: url(./bday.png) center/cover no-repeat;
+  
+  
+  }
+  /* Ensure the iframe covers the entire screen */
+.iframeWindow {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+  #imagine {
+    font-size: 60px;
+  }
+  
+    .main-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100vw;
+      flex-direction: column;
+  }
+  
+    
+    form input {
+      background: none;
+      font-family: inherit;
+      padding: 0px 17px;
+      height: 48px;
+      border: 1px solid #bc2727;
+      color: #fff; /* Font color set to white */
+      width: 350px;
+      margin-top: 5px;
+      border-radius: 50px;
+      z-index: 9;
+      transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition */
+  }
+  
+  /* Focus state */
+  form input:focus {
+      border-color: #a9c313; /* Change the color as desired */
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow when the input is focused */
+      outline: none; /* Removes the default browser outline */
+  }
+  
+  /* Placeholder style */
+  form input::placeholder {
+      color: #4fb436; /* Lighter shade for the placeholder */
+  }
+  
+    
+  
+    .flex-center {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }
+    
+    .header-center {
+      align-items: center;
+      flex-direction: column;
+      margin-top: 0%;
+    }
+    
+    #error {
+      color: #ff6666 !important;
+      white-space: pre-wrap;
+    }
+    
+    #error-code {
+      font-size: 12px;
+      font-family: "Courier New", Courier, monospace;
+    }
+    
+    .logo {
+      width: 150px;
+    }
+    
+    .logo-wrapper h1 {
+      color: white;
+    }
+    
+  
+    .footer{
+      margin: 0%;
+      padding: 0;
+      box-sizing: border-box;
+      height: 0;
+      width: 0; 
+      display: block;
+    }
+    html { height: 100% }
+  
+    
+    .desc p {
+      width: 560px;
+      color: rgba(253, 253, 253, 0.514);
+    }
+    
+  
+  
+  
+    .xy{
+  
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    canvas {
+      display: block;
+    }
+    
+    /* ---- particles.js container ---- */
+    
+    #particles-js {
+      z-index: -1;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+                  
+  
+  
+    /* Reset */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Typography */
+  body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #fff;
+    background-color: #1a1a1a;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    margin-bottom: 1rem;
+  }
+  
+  /* Layout */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .main-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+  }
+  
+  .logo {
+    width: 150px;
+  }
+  
+  .logo-wrapper h1 {
+    color: white;
+  }
+  
+  .desc p {
+    width: 560px;
+  }
+  
+  form input {
+    background: none;
+    font-family: inherit;
+    padding: 0px 17px;
+    height: 48px;
+    border: 1px solid #808080;
+    color: #fff;
+    width: 560px;
+    margin-top: 5px;
+    border-radius: 50px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  form input:focus {
+    border-color: #666;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    outline: none;
+  }
+  
+  form input::placeholder {
+    color: #ccc;
+  }
+  
+  .flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .fade-in {
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  
+  .minecraft-text {
+    color: #ee00ff; /* Yellow color */
+    font-family: Arial, sans-serif; /* Use a suitable font */
+    font-size: 24px; /* Adjust the font size as needed */
+    transform: rotate(-10deg); /* Rotate the text to achieve the tilted effect */
+  }
+  
+  
+   
+  
+  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+  
+  
+  .navbar {
+    display: flex;
+    justify-content: flex-end; /* Align items to the right */
+    align-items: center;
+  
+    padding: 10px;
+  }
+  
+  .app-link,
+  .game-link {
+    text-decoration: none;
+    color: white;
+    font-family: 'Press Start 2P', cursive; /* Use a desired font */
+    margin: 0 10px; /* Add some spacing between links */
+    position: relative;
+  }
+  
+  .game-link i {
+    margin-right: 5px;
+  }
+  
+  .game-link::before,
+  .app-link::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+  }
+  
+  .game-link:hover::before {
+    background-color: white; /* Change color on hover */
+  }
+  
+  .app-link:hover::before {
+    background-color: yellow; /* Different color for the Apps link */
+  }
+  
+  
+  
+  
+  
+  /* Sidebar styles */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -400px; /* Initially hidden */
+    height: 100%;
+    width: 400px; /* Increased width */
+    background-color: #5c968c;
+    transition: left 0.3s ease-in-out;
+    box-shadow: 5px 0px 15px rgba(0, 0, 0, 0.3); /* Add a shadow for a bordered effect */
+  }
+  
+  .sidebar.active {
+    left: 0; /* Slide in from the left */
+  }
+  
+  /* Sidebar content styles */
+  .sidebar-content {
+    padding: 20px;
+  }
+  
+  
+  
+  
+  
+  #myIframe {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: none; /* Initially hidden */
+  }
