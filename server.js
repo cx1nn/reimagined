@@ -1,31 +1,25 @@
-import wisp from "wisp-server-node";
-import { createBareServer } from "@tomphttp/bare-server-node";
-import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
-import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
-import { bareModulePath } from "@mercuryworkshop/bare-as-module3";
-import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
+import wisp from "wisp-server-node"
+import { createBareServer } from "@tomphttp/bare-server-node"
+import { uvPath } from "@titaniumnetwork-dev/ultraviolet"
+import { epoxyPath } from "@mercuryworkshop/epoxy-transport"
+import { bareModulePath } from "@mercuryworkshop/bare-as-module3"
+import { baremuxPath } from "@mercuryworkshop/bare-mux/node"
 import express from "express";
 import { createServer } from "node:http";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const bare = createBareServer("/bare/");
+const bare = createBareServer("/bare/")
 const __dirname = join(fileURLToPath(import.meta.url), "..");
 const app = express();
-const publicPath = "public";
+const publicPath = "public"; 
 
-// Serve static files
 app.use(express.static(publicPath));
-
-// Update to handle /uv/service correctly
-app.use("/uv/service", express.static(uvPath));
-
-// Other paths remain the same
+app.use("/uv/", express.static(uvPath));
 app.use("/epoxy/", express.static(epoxyPath));
 app.use("/baremux/", express.static(baremuxPath));
 app.use("/baremod/", express.static(bareModulePath));
 
-// 404 page handling
 app.use((req, res) => {
     res.status(404);
     res.sendFile(join(__dirname, publicPath, "404.html")); // change to your 404 page
@@ -58,11 +52,11 @@ if (isNaN(port)) port = 8080; // set your port
 server.on("listening", () => {
     const address = server.address();
     console.log("Listening on:");
-    console.log(`\thttp://localhost:${address.port}`);
+    console.log(\thttp://localhost:${address.port});
     console.log(
-        `\thttp://${
-            address.family === "IPv6" ? `[${address.address}]` : address.address
-        }:${address.port}`
+        \thttp://${
+            address.family === "IPv6" ? [${address.address}] : address.address
+        }:${address.port}
     );
 });
 
@@ -78,4 +72,4 @@ function shutdown() {
 
 server.listen({
     port,
-});
+})
