@@ -12,7 +12,7 @@ import { fileURLToPath } from "node:url";
 const bare = createBareServer("/bare/")
 const __dirname = join(fileURLToPath(import.meta.url), "..");
 const app = express();
-const publicPath = "public"; 
+const publicPath = "public"; // if you renamed your directory to something else other than public
 
 app.use(express.static(publicPath));
 app.use("/uv/", express.static(uvPath));
@@ -47,16 +47,15 @@ server.on("upgrade", (req, socket, head) => {
 
 let port = parseInt(process.env.PORT || "");
 
-if (isNaN(port)) port = 8080; // set your port
-
+if (isNaN(port)) port = 6060; 
 server.on("listening", () => {
     const address = server.address();
     console.log("Listening on:");
-    console.log(\thttp://localhost:${address.port});
+    console.log(`\thttp://localhost:${address.port}`);
     console.log(
-        \thttp://${
-            address.family === "IPv6" ? [${address.address}] : address.address
-        }:${address.port}
+        `\thttp://${
+            address.family === "IPv6" ? `[${address.address}]` : address.address
+        }:${address.port}`
     );
 });
 
@@ -72,4 +71,4 @@ function shutdown() {
 
 server.listen({
     port,
-})
+});

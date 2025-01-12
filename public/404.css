@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: radial-gradient(circle, #1a2a6c, #b21f1f, #fdbb2d);
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.error-title {
+    font-size: 8rem;
+    margin: 0;
+    letter-spacing: 5px;
+    color: #ff6347;
+}
+
+.error-message {
+    font-size: 1.5rem;
+    margin: 20px 0;
+}
+
+.astronaut-wrapper {
+    position: relative;
+    height: 200px;
+    margin: 20px auto;
+    overflow: hidden;
+    animation: float 4s infinite ease-in-out;
+}
+
+.astronaut {
+    width: 150px;
+    height: auto;
+    animation: rotate 6s infinite linear;
+}
+
+.home-link {
+    display: inline-block;
+    padding: 15px 30px;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #1a2a6c;
+    background-color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.home-link:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
